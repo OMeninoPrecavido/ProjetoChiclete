@@ -29,15 +29,14 @@ public class StreakManager : MonoBehaviour
         breathUI.UpdateStreak(state);
 
     }
-
+    
     public void NotifyStreakBreak(bool WasSuccess)
     {
         gumChooserUI.ReloadGumChoices();
         List<Gum> finalSequence = sequenceUI.BreakSequence();
         if (WasSuccess)
         {
-            Debug.Log("SCORE!!!");
-
+            float streakScore = Score.Calculate(finalSequence);
         }
     }
 }
