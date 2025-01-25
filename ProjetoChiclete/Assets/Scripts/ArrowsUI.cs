@@ -38,15 +38,15 @@ public class ArrowsUI : MonoBehaviour
 
                     if (currentSequence.Count <= 0)
                     {
-                        gameManager.SetGameState(GameState.GumSelection);
-                        sequenceUI.AddToSequence(currentGum);
                         CleanUp();
+                        sequenceUI.AddToSequence(currentGum);
+                        gameManager.SetGameState(GameState.GumSelection);
                     }
                 }
                 else
                 {
-                    gameManager.SetGameState(GameState.GumSelection);
                     CleanUp();
+                    gameManager.SetGameState(GameState.GumSelection);
                 }
             }
         }
@@ -54,13 +54,17 @@ public class ArrowsUI : MonoBehaviour
 
     void CleanUp()
     {
+        foreach (GameObject arrow in arrowObjects)
+        {
+            Destroy(arrow);
+        }
         arrowObjects.Clear();
         currentSequence.Clear();
     }
 
     private KeyCode? GetInput()
     {
-        if(Input.GetKeyDown(KeyCode.LeftArrow))
+        if (Input.GetKeyDown(KeyCode.LeftArrow))
             return KeyCode.LeftArrow;
         if (Input.GetKeyDown(KeyCode.RightArrow))
             return KeyCode.RightArrow;

@@ -12,7 +12,7 @@ public class GumObject : MonoBehaviour
 
     void Update()
     {
-        
+
     }
 
     public void SetGum(Gum gum)

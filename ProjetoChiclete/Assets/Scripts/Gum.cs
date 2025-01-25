@@ -7,7 +7,7 @@ public class Gum
     public Difficulty difficulty { get; private set; }
     public Flavour flavour { get; private set; }
 
-    public List<KeyCode> arrowSequence {  get; private set; }
+    public List<KeyCode> arrowSequence { get; private set; }
 
     public Gum()
     {
