@@ -35,4 +35,11 @@ public class SequenceUI : MonoBehaviour
             gumObjects.Add(gumObj);
         }
     }
+
+    public List<Gum> BreakSequence() {
+        List<Gum> finalSequence = new List<Gum>(currSequence);
+        currSequence.Clear();
+        DisplaySequence();
+        return finalSequence;
+    }
 }
