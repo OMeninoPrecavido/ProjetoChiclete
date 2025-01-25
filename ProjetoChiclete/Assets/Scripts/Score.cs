@@ -22,21 +22,23 @@ public class Score : MonoBehaviour
             finalScore += DifficultyModifier[difficulty];
         }
 
+
         //Getting sliding window to calculate for groups of 3
-        for (int i = 0; i < flavours.Count - 3; i++) {
+        for (int i = 0; i <= flavours.Count - 3; i++) {
             List<Flavour> window = flavours.GetRange(i, 3);
+            Debug.Log(string.Join(" ", window));
             //Check if we have a all different trio
-            if(window.Distinct().Count() == window.Count) {
-                i += 3;
+            if(window.Distinct().Count() == window.Count) 
+            {
+                i += 2;
                 continue;
             }
             //Check if we have a trio in a list
             if(window.All(item => item == window[0]))
             {
-                i += 3;
+                i += 2;
                 continue;
             }
-            Debug.Log(string.Join(" ", window));
         }
 
         return finalScore;
