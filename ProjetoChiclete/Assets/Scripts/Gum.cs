@@ -4,21 +4,25 @@ using UnityEngine;
 
 public class Gum
 {
-    public Difficulty difficulty { get; private set; }
-    public Flavour flavour { get; private set; }
+    public Difficulty difficulty { get; private set; } //Gum difficulty
+    public Flavour flavour { get; private set; } //Gum flavour
 
-    public List<KeyCode> arrowSequence { get; private set; }
+    public List<KeyCode> arrowSequence { get; private set; } //Sequence of arrows vinculated to the gum
 
     public Gum()
     {
-        difficulty = (Difficulty)Random.Range(0, 3);
-        flavour = (Flavour)Random.Range(0, 3);
+        //Constructor randomizes fields
+        difficulty = (Difficulty)Random.Range(0, 3); //Random difficulty
+        flavour = (Flavour)Random.Range(0, 3); //Random flavour
+
+        //Random sequence of arrows
         arrowSequence = new List<KeyCode>();
 
         int numOfarrows = 0;
 
         switch (difficulty)
         {
+            //Number of arrows varies based on difficulty of gum
             case Difficulty.Easy:
                 numOfarrows = Random.Range(3, 6);
                 break;
@@ -37,6 +41,7 @@ public class Gum
         }
     }
 
+    //Method that outputs a random KeyCode arrow.
     private KeyCode RandomArrow()
     {
         int rand = Random.Range(0, 4);

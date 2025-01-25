@@ -38,6 +38,8 @@ public class ArrowsUI : MonoBehaviour
 
                     if (currentSequence.Count <= 0)
                     {
+                        Input.ResetInputAxes();
+
                         CleanUp();
                         sequenceUI.AddToSequence(currentGum);
                         gameManager.SetGameState(GameState.GumSelection);
@@ -45,6 +47,8 @@ public class ArrowsUI : MonoBehaviour
                 }
                 else
                 {
+                    Input.ResetInputAxes();
+
                     CleanUp();
                     gameManager.SetGameState(GameState.GumSelection);
                 }
