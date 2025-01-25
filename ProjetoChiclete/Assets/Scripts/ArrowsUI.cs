@@ -6,6 +6,7 @@ using UnityEngine;
 public class ArrowsUI : MonoBehaviour
 {
     GameManager gameManager; //Game manager reference
+    StreakManager streakManager;
 
     [SerializeField] GameObject arrowsContainer; //Reference to Arrows UI
 
@@ -25,6 +26,7 @@ public class ArrowsUI : MonoBehaviour
     private void Awake()
     {
         gameManager = GameManager.instance; //Game manager instance
+        streakManager = StreakManager.instance; // Streak manager instance
     }
 
     private void Update()
@@ -49,6 +51,7 @@ public class ArrowsUI : MonoBehaviour
 
                         sequenceUI.AddToSequence(currentGum); //Adds gum to combo sequence
 
+                        streakManager.NotifyEndOfSequence(true); //Notify that the right sequence was typed
                         gameManager.SetGameState(GameState.GumSelection); //Sets game state to GumSelection
                     }
                 }
@@ -58,6 +61,7 @@ public class ArrowsUI : MonoBehaviour
 
                     CleanUp(); //Destroys every arrow image and clears both lists
 
+                    streakManager.NotifyEndOfSequence(false); //Notify that the wrong sequence was typed
                     gameManager.SetGameState(GameState.GumSelection);//Sets game state to GumSelection
                 }
             }
