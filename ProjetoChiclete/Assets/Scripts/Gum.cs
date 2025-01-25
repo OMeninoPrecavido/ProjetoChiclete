@@ -23,5 +23,5 @@ public enum Flavour
 {
     Tutti,
     Mint,
-    Strawberry
+    Blueberry
 }
