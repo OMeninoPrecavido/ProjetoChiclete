@@ -241,7 +241,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   arrowsUi: {fileID: 1720575847}
-  gumChooserUi: {fileID: 749368314}
+  gumChooser: {fileID: 0}
   gameState: 0
 --- !u!4 &491823217
 Transform:
