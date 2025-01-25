@@ -37,17 +37,6 @@ public class Gum
         }
     }
 
-    public Gum(Gum copyGum)
-    {
-        difficulty = copyGum.difficulty;
-        flavour = copyGum.flavour;
-        arrowSequence = new List<KeyCode>();
-        foreach (KeyCode key in copyGum.arrowSequence)
-        {
-            arrowSequence.Add(key);
-        }
-    }
-
     private KeyCode RandomArrow()
     {
         int rand = Random.Range(0, 4);

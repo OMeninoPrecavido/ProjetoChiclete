@@ -15,7 +15,7 @@ public class GumChooser : MonoBehaviour
     void Start()
     {
         gameManager = GameManager.instance;
-        currentGumChoices = createGumChoices();
+        currentGumChoices = CreateGumChoices();
     }
 
     void Update()
@@ -45,16 +45,15 @@ public class GumChooser : MonoBehaviour
             if (chosenGum != null) {
                 Input.ResetInputAxes();
 
-                Gum newGum = new Gum(chosenGum);
-                arrowsUi.SetSequence(newGum);
+                arrowsUi.SetSequence(chosenGum);
                 gameManager.SetGameState(GameState.ArrowSequence);
 
-                currentGumChoices = createGumChoices();
+                currentGumChoices = CreateGumChoices();
             }
         }
     }
 
-    private void clearChoices()
+    private void ClearChoices()
     {
         foreach(GameObject gum in currentGumChoices)
         {
@@ -62,9 +61,9 @@ public class GumChooser : MonoBehaviour
         }
     }
 
-    private List<GameObject> createGumChoices()
+    private List<GameObject> CreateGumChoices()
     {
-        clearChoices();
+        ClearChoices();
 
         List<GameObject> gumChoices = new List<GameObject>();
         for(int i = 0;i < GUM_CHOICE_AMOUNT;i++)

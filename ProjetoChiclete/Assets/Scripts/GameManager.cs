@@ -20,9 +20,9 @@ public class GameManager : MonoBehaviour
         else
         {
             instance = this;
+            SetGameState(GameState.GumSelection);
         }
 
-        SetGameState(GameState.GumSelection);
     }
 
     private void GumSelection()

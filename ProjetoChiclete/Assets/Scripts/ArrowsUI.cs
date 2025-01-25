@@ -16,6 +16,7 @@ public class ArrowsUI : MonoBehaviour
 
     private List<KeyCode> currentSequence = new List<KeyCode>();
     private List<GameObject> arrowObjects = new List<GameObject>();
+    private Gum currentGum;
 
     private void Awake()
     {
@@ -26,7 +27,7 @@ public class ArrowsUI : MonoBehaviour
     {
         if (gameManager.gameState == GameState.ArrowSequence)
         {
-            KeyCode? pressedKey = getInput();
+            KeyCode? pressedKey = GetInput();
             if (pressedKey != null)
             {
                 if (pressedKey == currentSequence[0])
@@ -38,7 +39,7 @@ public class ArrowsUI : MonoBehaviour
                     if (currentSequence.Count <= 0)
                     {
                         gameManager.SetGameState(GameState.GumSelection);
-                        //sequenceUI.AddToSequence(currentGum);
+                        sequenceUI.AddToSequence(currentGum);
                         CleanUp();
                     }
                 }
@@ -57,7 +58,7 @@ public class ArrowsUI : MonoBehaviour
         currentSequence.Clear();
     }
 
-    private KeyCode? getInput()
+    private KeyCode? GetInput()
     {
         if(Input.GetKeyDown(KeyCode.LeftArrow))
             return KeyCode.LeftArrow;
@@ -74,6 +75,7 @@ public class ArrowsUI : MonoBehaviour
     public void SetSequence(Gum gum)
     {
         currentSequence = gum.arrowSequence;
+        currentGum = gum;
         DisplaySequence();
     }
 

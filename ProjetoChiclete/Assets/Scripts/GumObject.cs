@@ -4,14 +4,12 @@ using UnityEngine.UI;
 public class GumObject : MonoBehaviour
 {
     public Gum gum { get; private set; }
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    void Awake()
     {
         gum = new Gum();
         ChangeSpriteColor();
     }
 
-    // Update is called once per frame
     void Update()
     {
         
