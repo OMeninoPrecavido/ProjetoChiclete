@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject gumChooserUi; //Side gum options UI
     [SerializeField] TextMeshProUGUI timerUi; //Game timer UI
     [SerializeField] TextMeshProUGUI pointsUi; //Game points UI
+    [SerializeField] GameObject pointerArrowsUi; //UI for indication arrows
 
     public static GameManager instance; //SINGLETON instance
 
@@ -51,6 +52,7 @@ public class GameManager : MonoBehaviour
     {
         arrowsUi.SetActive(false);
         gumChooserUi.SetActive(true);
+        pointerArrowsUi.SetActive(true);
     }
 
     //Configures UI for the ArrowSequence game state
@@ -58,6 +60,7 @@ public class GameManager : MonoBehaviour
     {
         arrowsUi.SetActive(true);
         gumChooserUi.SetActive(false);
+        pointerArrowsUi.SetActive(false);
     }
 
     private void EndGame()

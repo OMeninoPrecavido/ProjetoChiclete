@@ -31,6 +31,7 @@ public class SequenceUI : MonoBehaviour
         {
             GameObject gumObj = Instantiate(gumObjectPrefab);
             gumObj.GetComponent<GumObject>().SetGum(gum);
+            gumObj.GetComponent<GumObject>().SetSpriteAsSequence();
             gumObj.transform.SetParent(sequenceContainer.transform);
             gumObjects.Add(gumObj);
         }

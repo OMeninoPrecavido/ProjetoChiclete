@@ -14,6 +14,7 @@ public class GumObject : MonoBehaviour
 
     [SerializeField] Image FirstStar;
     [SerializeField] Image SecondStar;
+    [SerializeField] Transform StarHolder;
 
     public Gum gum { get; private set; } //Gum represented by the GumObject
 
@@ -71,5 +72,28 @@ public class GumObject : MonoBehaviour
                 break;
 
         }
+    }
+
+    public void SetSpriteAsSequence()
+    {
+        MintBallon.gameObject.SetActive(false);
+        TuttiBallon.gameObject.SetActive(false);
+        BBBallon.gameObject.SetActive(false);
+
+        FirstStar.transform.SetParent(StarHolder.transform);
+        SecondStar.transform.SetParent(StarHolder.transform);
+
+        var mintRef = MintGum.GetComponent<RectTransform>();
+        var BBRef = BBGum.GetComponent<RectTransform>();
+        var tuttiRef = TuttiGum.GetComponent<RectTransform>();
+
+        tuttiRef.localScale *= 1.2f;
+        //tuttiRef.eulerAngles = new Vector3(0, 0, Random.Range(-3.5f, 3.5f));
+
+        BBRef.localScale *= 1.2f;
+        //BBRef.eulerAngles = new Vector3(0, 0, Random.Range(-3.5f, 3.5f));
+
+        mintRef.localScale *= 1.2f;
+        //mintRef.eulerAngles = new Vector3(0, 0, Random.Range(-3.5f, 3.5f));
     }
 }
