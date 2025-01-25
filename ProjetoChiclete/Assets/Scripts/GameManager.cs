@@ -34,7 +34,7 @@ public class GameManager : MonoBehaviour
     private void ArrowSequence()
     {
         arrowsUi.SetActive(true);
-        gumChooserUi.gameObject.SetActive(false);
+        gumChooserUi.SetActive(false);
     }
 
     public void SetGameState(GameState state)
