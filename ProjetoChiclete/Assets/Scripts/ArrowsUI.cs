@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class ArrowsUI : MonoBehaviour
 {
+    GameManager gameManager;
+
     [SerializeField] GameObject arrowsContainer;
 
     [SerializeField] GameObject arrowUpPrefab;
@@ -12,6 +14,43 @@ public class ArrowsUI : MonoBehaviour
     [SerializeField] GameObject arrowRightPrefab;
 
     private List<KeyCode> currentSequence = new List<KeyCode>();
+    private List<GameObject> arrowObjects = new List<GameObject>();
+
+    private void Awake()
+    {
+        gameManager = GameManager.instance;
+    }
+
+    private void Update()
+    {
+        if (gameManager.gameState == GameState.ArrowSequence)
+        {
+            KeyCode? pressedKey = getInput();
+            if (pressedKey != null)
+            {
+                if (pressedKey == currentSequence[0])
+                {
+                    currentSequence.RemoveAt(0);
+                    Destroy(arrowObjects[0]);
+                    arrowObjects.RemoveAt(0);
+                }
+            }
+        }
+    }
+
+    private KeyCode? getInput()
+    {
+        if(Input.GetKeyDown(KeyCode.LeftArrow))
+            return KeyCode.LeftArrow;
+        if (Input.GetKeyDown(KeyCode.RightArrow))
+            return KeyCode.RightArrow;
+        if (Input.GetKeyDown(KeyCode.UpArrow))
+            return KeyCode.UpArrow;
+        if (Input.GetKeyDown(KeyCode.DownArrow))
+            return KeyCode.DownArrow;
+
+        return null;
+    }
 
     public void SetSequence(List<KeyCode> sequence)
     {
@@ -43,6 +82,7 @@ public class ArrowsUI : MonoBehaviour
 
             GameObject arrow = Instantiate(instPrefab);
             arrow.transform.SetParent(arrowsContainer.transform);
+            arrowObjects.Add(arrow);
         }
     }
 }
