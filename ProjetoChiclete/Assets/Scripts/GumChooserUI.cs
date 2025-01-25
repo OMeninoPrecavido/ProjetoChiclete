@@ -81,4 +81,9 @@ public class GumChooserUI : MonoBehaviour
 
         return gumChoices;
     }
+
+    public void ReloadGumChoices()
+    {
+        currentGumChoices = CreateGumChoices();
+    }
 }
