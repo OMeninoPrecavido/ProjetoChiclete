@@ -87,6 +87,7 @@ public class GameManager : MonoBehaviour
     public void IncreasePoints(int value)
     {
         Points += value;
+        pointsUi.text = Points.ToString();
     }
 
     IEnumerator DecreaseTimer()

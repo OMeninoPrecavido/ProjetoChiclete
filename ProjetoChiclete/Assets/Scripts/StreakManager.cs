@@ -8,6 +8,7 @@ public class StreakManager : MonoBehaviour
     [SerializeField] SequenceUI sequenceUI;
     [SerializeField] GumChooserUI gumChooserUI;
 
+    GameManager gameManager;
     public static StreakManager instance; //SINGLETON instance
 
     private void Awake()
@@ -20,6 +21,7 @@ public class StreakManager : MonoBehaviour
         else
         {
             instance = this;
+            gameManager = GameManager.instance;
         }
     }
 
@@ -36,7 +38,8 @@ public class StreakManager : MonoBehaviour
         List<Gum> finalSequence = sequenceUI.BreakSequence();
         if (WasSuccess)
         {
-            float streakScore = Score.Calculate(finalSequence);
+            int streakScore = Score.Calculate(finalSequence);
+            gameManager.IncreasePoints(streakScore);
         }
     }
 }
