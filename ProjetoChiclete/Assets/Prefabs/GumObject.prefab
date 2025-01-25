@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2955494397106206833}
   - component: {fileID: 6523835203258604402}
   m_Layer: 5
-  m_Name: GumContainer
+  m_Name: GumObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

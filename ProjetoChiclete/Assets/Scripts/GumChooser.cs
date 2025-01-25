@@ -5,22 +5,47 @@ using UnityEngine.UI;
 
 public class GumChooser : MonoBehaviour
 {
+    GameManager gameManager;
     [SerializeField] GameObject gumObject;
     private const int GUM_CHOICE_AMOUNT = 4;
     private List<GameObject> currentGumChoices = new List<GameObject>();
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    [SerializeField] private ArrowsUI arrowsUi;
+
     void Start()
     {
+        gameManager = GameManager.instance;
         currentGumChoices = createGumChoices();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyUp(KeyCode.Space))
+        
+        if (gameManager.gameState == GameState.GumSelection)
         {
-            currentGumChoices = createGumChoices();
+            Gum chosenGum = null;
+
+            if (Input.GetKeyDown(KeyCode.LeftArrow))
+            {
+                chosenGum = currentGumChoices[0].GetComponent<GumObject>().gum;
+            }
+            else if (Input.GetKeyDown(KeyCode.UpArrow))
+            {
+                chosenGum = currentGumChoices[1].GetComponent<GumObject>().gum;
+            }
+            else if (Input.GetKeyDown(KeyCode.RightArrow))
+            {
+                chosenGum = currentGumChoices[2].GetComponent<GumObject>().gum;
+            }
+            else if (Input.GetKeyDown(KeyCode.DownArrow))
+            {
+                chosenGum = currentGumChoices[3].GetComponent<GumObject>().gum;
+            }
+
+            if (chosenGum != null) {
+                arrowsUi.SetSequence(chosenGum.arrowSequence);
+                gameManager.SetGameState(GameState.ArrowSequence);
+            }
         }
     }
 

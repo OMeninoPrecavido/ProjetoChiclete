@@ -1,9 +1,9 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class GumContainer : MonoBehaviour
+public class GumObject : MonoBehaviour
 {
-    private Gum gum;
+    public Gum gum { get; private set; }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
