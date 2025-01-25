@@ -22,7 +22,7 @@ public class BreathUI : MonoBehaviour
         if (HasStreak)
         {
             //Check if the player wants to break the streak
-            if(Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetKeyDown(KeyCode.Space))
                 BreakStreak(true);
 
             //Updating bar UI
@@ -48,7 +48,7 @@ public class BreathUI : MonoBehaviour
     public void UpdateStreak(bool WasSuccess)
     {
         if (HasStreak)
-        {   
+        {
             //We increase out breath if the sequence was successful, otherwise, we decrease it
             if (WasSuccess)
                 CurrentBreath = Mathf.Min(CurrentBreath + STREAK_ALTERATION_TIME, MAX_BREATH_TIME);

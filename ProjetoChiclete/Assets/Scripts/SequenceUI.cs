@@ -36,7 +36,8 @@ public class SequenceUI : MonoBehaviour
         }
     }
 
-    public List<Gum> BreakSequence() {
+    public List<Gum> BreakSequence()
+    {
         List<Gum> finalSequence = new List<Gum>(currSequence);
         currSequence.Clear();
         DisplaySequence();
