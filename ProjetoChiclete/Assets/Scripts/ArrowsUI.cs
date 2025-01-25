@@ -12,6 +12,7 @@ public class ArrowsUI : MonoBehaviour
     [SerializeField] GameObject arrowDownPrefab;
     [SerializeField] GameObject arrowLeftPrefab;
     [SerializeField] GameObject arrowRightPrefab;
+    [SerializeField] SequenceUI sequenceUI;
 
     private List<KeyCode> currentSequence = new List<KeyCode>();
     private List<GameObject> arrowObjects = new List<GameObject>();
@@ -33,9 +34,27 @@ public class ArrowsUI : MonoBehaviour
                     currentSequence.RemoveAt(0);
                     Destroy(arrowObjects[0]);
                     arrowObjects.RemoveAt(0);
+
+                    if (currentSequence.Count <= 0)
+                    {
+                        gameManager.SetGameState(GameState.GumSelection);
+                        //sequenceUI.AddToSequence(currentGum);
+                        CleanUp();
+                    }
+                }
+                else
+                {
+                    gameManager.SetGameState(GameState.GumSelection);
+                    CleanUp();
                 }
             }
         }
+    }
+
+    void CleanUp()
+    {
+        arrowObjects.Clear();
+        currentSequence.Clear();
     }
 
     private KeyCode? getInput()
@@ -52,9 +71,9 @@ public class ArrowsUI : MonoBehaviour
         return null;
     }
 
-    public void SetSequence(List<KeyCode> sequence)
+    public void SetSequence(Gum gum)
     {
-        currentSequence = sequence;
+        currentSequence = gum.arrowSequence;
         DisplaySequence();
     }
 

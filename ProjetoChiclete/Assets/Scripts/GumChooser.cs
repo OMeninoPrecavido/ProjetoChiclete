@@ -43,8 +43,13 @@ public class GumChooser : MonoBehaviour
             }
 
             if (chosenGum != null) {
-                arrowsUi.SetSequence(chosenGum.arrowSequence);
+                Input.ResetInputAxes();
+
+                Gum newGum = new Gum(chosenGum);
+                arrowsUi.SetSequence(newGum);
                 gameManager.SetGameState(GameState.ArrowSequence);
+
+                currentGumChoices = createGumChoices();
             }
         }
     }

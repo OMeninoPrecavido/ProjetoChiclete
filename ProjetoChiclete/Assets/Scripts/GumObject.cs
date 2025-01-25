@@ -8,6 +8,23 @@ public class GumObject : MonoBehaviour
     void Start()
     {
         gum = new Gum();
+        ChangeSpriteColor();
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
+
+    public void SetGum(Gum gum)
+    {
+        this.gum = gum;
+        ChangeSpriteColor();
+    }
+
+    private void ChangeSpriteColor()
+    {
         Image image = this.GetComponent<Image>();
         switch (gum.flavour)
         {
@@ -21,11 +38,5 @@ public class GumObject : MonoBehaviour
                 image.color = Color.blue;
                 break;
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }
