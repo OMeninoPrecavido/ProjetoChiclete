@@ -5,6 +5,7 @@ using UnityEngine;
 public class GumChooserUI : MonoBehaviour
 {
     GameManager gameManager; //Game manager instance
+    StreakManager streakManager;
 
     [SerializeField] GameObject gumChooserContainer; //Reference to Gum Choosing UI
     [SerializeField] private ArrowsUI arrowsUi; //Reference to Arrows UI
@@ -17,6 +18,7 @@ public class GumChooserUI : MonoBehaviour
     void Start()
     {
         gameManager = GameManager.instance;
+        streakManager = StreakManager.instance;
         currentGumChoices = CreateGumChoices(); //Creates new random selection of gums
     }
 
@@ -50,9 +52,12 @@ public class GumChooserUI : MonoBehaviour
                 Input.ResetInputAxes(); //Prevents pressed key from influencing the next game state
 
                 arrowsUi.SetSequence(chosenGum); //Passes the chosen gum to the Arrows UI
-                gameManager.SetGameState(GameState.ArrowSequence); //Changes game state
 
                 currentGumChoices = CreateGumChoices(); //Resets gum choices
+
+                streakManager.NotifyUpdateStreak(StreakState.Choice);
+
+                gameManager.SetGameState(GameState.ArrowSequence); //Changes game state
             }
         }
     }

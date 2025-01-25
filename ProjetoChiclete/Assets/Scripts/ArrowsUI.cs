@@ -51,7 +51,7 @@ public class ArrowsUI : MonoBehaviour
 
                         sequenceUI.AddToSequence(currentGum); //Adds gum to combo sequence
 
-                        streakManager.NotifyEndOfSequence(true); //Notify that the right sequence was typed
+                        streakManager.NotifyUpdateStreak(StreakState.Success); //Notify that the right sequence was typed
                         gameManager.SetGameState(GameState.GumSelection); //Sets game state to GumSelection
                     }
                 }
@@ -61,7 +61,7 @@ public class ArrowsUI : MonoBehaviour
 
                     CleanUp(); //Destroys every arrow image and clears both lists
 
-                    streakManager.NotifyEndOfSequence(false); //Notify that the wrong sequence was typed
+                    streakManager.NotifyUpdateStreak(StreakState.Fail); //Notify that the wrong sequence was typed
                     gameManager.SetGameState(GameState.GumSelection);//Sets game state to GumSelection
                 }
             }

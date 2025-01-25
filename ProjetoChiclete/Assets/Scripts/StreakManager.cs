@@ -23,9 +23,11 @@ public class StreakManager : MonoBehaviour
         }
     }
 
-    public void NotifyEndOfSequence(bool WasSuccess)
+    public void NotifyUpdateStreak(StreakState state)
     {
-        breathUI.UpdateStreak(WasSuccess);
+        
+        breathUI.UpdateStreak(state);
+
     }
 
     public void NotifyStreakBreak(bool WasSuccess)
@@ -39,3 +41,6 @@ public class StreakManager : MonoBehaviour
         }
     }
 }
+
+
+
