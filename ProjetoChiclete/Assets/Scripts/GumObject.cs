@@ -12,24 +12,27 @@ public class GumObject : MonoBehaviour
     [SerializeField] Image BBGum;
     [SerializeField] Image MintGum;
 
+    [SerializeField] Image FirstStar;
+    [SerializeField] Image SecondStar;
+
     public Gum gum { get; private set; } //Gum represented by the GumObject
 
     void Awake()
     {
         //Initializes Gum field and changes the image's color
         gum = new Gum();
-        ChangeSpriteByFlavour();
+        ChangeSprite();
     }
 
     //Method that allows other classes to define the Gum field on this class
     public void SetGum(Gum gum)
     {
         this.gum = gum;
-        ChangeSpriteByFlavour();
+        ChangeSprite();
     }
 
     //Changes color of sprite based on the gum flavour
-    private void ChangeSpriteByFlavour()
+    private void ChangeSprite()
     {
         MintBallon.gameObject.SetActive(false);
         MintGum.gameObject.SetActive(false);
@@ -37,6 +40,7 @@ public class GumObject : MonoBehaviour
         BBGum.gameObject.SetActive(false);
         TuttiBallon.gameObject.SetActive(false);
         TuttiGum.gameObject.SetActive(false);
+
         switch (gum.flavour)
         {
             case Flavour.Mint:
@@ -51,6 +55,21 @@ public class GumObject : MonoBehaviour
                 BBBallon.gameObject.SetActive (true);
                 BBGum.gameObject.SetActive(true);
                 break;
+        }
+
+        FirstStar.gameObject.SetActive(false);
+        SecondStar.gameObject.SetActive(false);
+
+        switch (gum.difficulty)
+        {
+            case Difficulty.Normal:
+                FirstStar.gameObject.SetActive(true);
+                break;
+            case Difficulty.Hard:
+                FirstStar.gameObject.SetActive(true);
+                SecondStar.gameObject.SetActive(true);
+                break;
+
         }
     }
 }
