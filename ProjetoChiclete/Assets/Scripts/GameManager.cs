@@ -60,6 +60,12 @@ public class GameManager : MonoBehaviour
         gumChooserUi.SetActive(false);
     }
 
+    private void EndGame()
+    {
+        arrowsUi.SetActive(false);
+        gumChooserUi.SetActive(false);
+    }
+
     //Method used by other scripts to change the game state
     public void SetGameState(GameState state)
     {
@@ -72,7 +78,10 @@ public class GameManager : MonoBehaviour
             case GameState.ArrowSequence:
                 ArrowSequence();
                 break;
-        }
+            case GameState.EndGame:
+                EndGame();
+                break;
+        }   
     }
 
     public void IncreasePoints(int value)
@@ -88,11 +97,13 @@ public class GameManager : MonoBehaviour
             timerUi.text = Timer.ToString();
             yield return new WaitForSeconds(1);
         }
+        SetGameState(GameState.EndGame);
     }
 }
 
 public enum GameState //Enumerator for game states
 {
     GumSelection,
-    ArrowSequence
+    ArrowSequence,
+    EndGame
 }

@@ -6,6 +6,7 @@ public class StreakManager : MonoBehaviour
 {
     [SerializeField] BreathUI breathUI;
     [SerializeField] SequenceUI sequenceUI;
+    [SerializeField] GumChooserUI gumChooserUI;
 
     public static StreakManager instance; //SINGLETON instance
 
@@ -22,17 +23,24 @@ public class StreakManager : MonoBehaviour
         }
     }
 
-    public void NotifyEndOfSequence(bool WasSuccess)
+    public void NotifyUpdateStreak(StreakState state)
     {
-        breathUI.UpdateStreak(WasSuccess);
+        
+        breathUI.UpdateStreak(state);
+
     }
 
     public void NotifyStreakBreak(bool WasSuccess)
     {
+        gumChooserUI.ReloadGumChoices();
         List<Gum> finalSequence = sequenceUI.BreakSequence();
         if (WasSuccess)
         {
             Debug.Log("SCORE!!!");
+
         }
     }
 }
+
+
+
