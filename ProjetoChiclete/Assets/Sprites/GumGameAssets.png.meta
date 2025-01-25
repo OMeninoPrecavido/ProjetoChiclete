@@ -1,0 +1,636 @@
+fileFormatVersion: 2
+guid: b299d2feb40efab48b35aa7bfe5f6112
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -5303515241016855841
+    second: GumGameAssets_0
+  - first:
+      213: 1056113368467959575
+    second: GumGameAssets_1
+  - first:
+      213: -3788563053422845306
+    second: GumGameAssets_2
+  - first:
+      213: 1483595639619668223
+    second: GumGameAssets_3
+  - first:
+      213: 4787091136297490367
+    second: GumGameAssets_4
+  - first:
+      213: -1059980099302880131
+    second: GumGameAssets_5
+  - first:
+      213: -3372132238036083821
+    second: GumGameAssets_6
+  - first:
+      213: -1781401158020110944
+    second: GumGameAssets_7
+  - first:
+      213: 8812415048617403302
+    second: GumGameAssets_8
+  - first:
+      213: 4566295729126236553
+    second: GumGameAssets_9
+  - first:
+      213: -3662702102580410892
+    second: GumGameAssets_10
+  - first:
+      213: 6983221266345260604
+    second: GumGameAssets_11
+  - first:
+      213: 2226872468168792562
+    second: GumGameAssets_12
+  - first:
+      213: 460159233703285947
+    second: GumGameAssets_13
+  - first:
+      213: 8842157497053652666
+    second: GumGameAssets_14
+  - first:
+      213: 6010586447194591486
+    second: GumGameAssets_15
+  - first:
+      213: -6402149192604126461
+    second: GumGameAssets_16
+  - first:
+      213: 3929270365811792053
+    second: GumGameAssets_17
+  - first:
+      213: -1776579640783882802
+    second: GumGameAssets_18
+  - first:
+      213: 4218000621859540706
+    second: GumGameAssets_19
+  - first:
+      213: 5689318879868549966
+    second: GumGameAssets_20
+  - first:
+      213: -2013309230740428349
+    second: GumGameAssets_21
+  - first:
+      213: -3249050044507231426
+    second: GumGameAssets_22
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: GumGameAssets_0
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 1256
+        width: 204
+        height: 311
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fd2f15eccf02666b0800000000000000
+      internalID: -5303515241016855841
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GumGameAssets_1
+      rect:
+        serializedVersion: 2
+        x: 233
+        y: 1256
+        width: 204
+        height: 311
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 71fe21a538118ae00800000000000000
+      internalID: 1056113368467959575
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GumGameAssets_2
+      rect:
+        serializedVersion: 2
+        x: 491
+        y: 1307
+        width: 182
+        height: 204
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 682ef8fb9f15c6bc0800000000000000
+      internalID: -3788563053422845306
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GumGameAssets_3
+      rect:
+        serializedVersion: 2
+        x: 705
+        y: 1312
+        width: 182
+        height: 204
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ff849d1bf5ac69410800000000000000
+      internalID: 1483595639619668223
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GumGameAssets_4
+      rect:
+        serializedVersion: 2
+        x: 923
+        y: 1473
+        width: 75
+        height: 84
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fb7de6e760a2f6240800000000000000
+      internalID: 4787091136297490367
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GumGameAssets_5
+      rect:
+        serializedVersion: 2
+        x: 1053
+        y: 1452
+        width: 104
+        height: 110
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d7c811837b13a41f0800000000000000
+      internalID: -1059980099302880131
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GumGameAssets_6
+      rect:
+        serializedVersion: 2
+        x: 1202
+        y: 1465
+        width: 101
+        height: 92
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 39b57388897c331d0800000000000000
+      internalID: -3372132238036083821
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GumGameAssets_7
+      rect:
+        serializedVersion: 2
+        x: 1363
+        y: 1456
+        width: 99
+        height: 100
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0a5edb5c5113747e0800000000000000
+      internalID: -1781401158020110944
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GumGameAssets_8
+      rect:
+        serializedVersion: 2
+        x: 923
+        y: 1373
+        width: 75
+        height: 84
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6a3a52aebccfb4a70800000000000000
+      internalID: 8812415048617403302
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GumGameAssets_9
+      rect:
+        serializedVersion: 2
+        x: 1053
+        y: 1339
+        width: 85
+        height: 73
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 981e3f9b5cdbe5f30800000000000000
+      internalID: 4566295729126236553
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GumGameAssets_10
+      rect:
+        serializedVersion: 2
+        x: 919
+        y: 1282
+        width: 84
+        height: 75
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4f54e91f7d77b2dc0800000000000000
+      internalID: -3662702102580410892
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GumGameAssets_11
+      rect:
+        serializedVersion: 2
+        x: 919
+        y: 1192
+        width: 92
+        height: 75
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c3676783eb269e060800000000000000
+      internalID: 6983221266345260604
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GumGameAssets_12
+      rect:
+        serializedVersion: 2
+        x: 91
+        y: 802
+        width: 373
+        height: 331
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2f95c4916b077ee10800000000000000
+      internalID: 2226872468168792562
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GumGameAssets_13
+      rect:
+        serializedVersion: 2
+        x: 488
+        y: 802
+        width: 372
+        height: 331
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bb410019260d26600800000000000000
+      internalID: 460159233703285947
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GumGameAssets_14
+      rect:
+        serializedVersion: 2
+        x: 886
+        y: 802
+        width: 373
+        height: 331
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ab6a0f35567a5ba70800000000000000
+      internalID: 8842157497053652666
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GumGameAssets_16
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 568
+        width: 1779
+        height: 220
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 303f6c7ba3ff627a0800000000000000
+      internalID: -6402149192604126461
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GumGameAssets_18
+      rect:
+        serializedVersion: 2
+        x: 1772
+        y: 652
+        width: 53
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ec5b2ebba325857e0800000000000000
+      internalID: -1776579640783882802
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GumGameAssets_20
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 316
+        width: 1750
+        height: 210
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e4bfc70c06584fe40800000000000000
+      internalID: 5689318879868549966
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GumGameAssets_22
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 74
+        width: 1668
+        height: 99
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e3bedafd23e09e2d0800000000000000
+      internalID: -3249050044507231426
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: c2096c6b90308c94996a2d403fd373e2
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      GumGameAssets_0: -5303515241016855841
+      GumGameAssets_1: 1056113368467959575
+      GumGameAssets_10: -3662702102580410892
+      GumGameAssets_11: 6983221266345260604
+      GumGameAssets_12: 2226872468168792562
+      GumGameAssets_13: 460159233703285947
+      GumGameAssets_14: 8842157497053652666
+      GumGameAssets_16: -6402149192604126461
+      GumGameAssets_18: -1776579640783882802
+      GumGameAssets_2: -3788563053422845306
+      GumGameAssets_20: 5689318879868549966
+      GumGameAssets_22: -3249050044507231426
+      GumGameAssets_3: 1483595639619668223
+      GumGameAssets_4: 4787091136297490367
+      GumGameAssets_5: -1059980099302880131
+      GumGameAssets_6: -3372132238036083821
+      GumGameAssets_7: -1781401158020110944
+      GumGameAssets_8: 8812415048617403302
+      GumGameAssets_9: 4566295729126236553
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
