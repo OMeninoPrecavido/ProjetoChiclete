@@ -1,29 +1,33 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//This script deals with the Gum Choosing UI and its subsequent functionalities
 public class GumChooserUI : MonoBehaviour
 {
-    GameManager gameManager;
-    [SerializeField] GameObject gumChooserContainer;
-    [SerializeField] GameObject gumObject;
-    private const int GUM_CHOICE_AMOUNT = 4;
-    private List<GameObject> currentGumChoices = new List<GameObject>();
+    GameManager gameManager; //Game manager instance
 
-    [SerializeField] private ArrowsUI arrowsUi;
+    [SerializeField] GameObject gumChooserContainer; //Reference to Gum Choosing UI
+    [SerializeField] private ArrowsUI arrowsUi; //Reference to Arrows UI
+    [SerializeField] GameObject gumObject; //Reference to gum object prefab
+
+    private const int GUM_CHOICE_AMOUNT = 4; //Amount of gum options
+
+    private List<GameObject> currentGumChoices = new List<GameObject>(); //List of current gum objects onscreen
 
     void Start()
     {
         gameManager = GameManager.instance;
-        currentGumChoices = CreateGumChoices();
+        currentGumChoices = CreateGumChoices(); //Creates new random selection of gums
     }
 
     void Update()
     {
 
-        if (gameManager.gameState == GameState.GumSelection)
+        if (gameManager.gameState == GameState.GumSelection) //Only works in the correct game state
         {
             Gum chosenGum = null;
 
+            //Allows player to choose next gum with arrow keys
             if (Input.GetKeyDown(KeyCode.LeftArrow))
             {
                 chosenGum = currentGumChoices[0].GetComponent<GumObject>().gum;
@@ -43,16 +47,17 @@ public class GumChooserUI : MonoBehaviour
 
             if (chosenGum != null)
             {
-                Input.ResetInputAxes();
+                Input.ResetInputAxes(); //Prevents pressed key from influencing the next game state
 
-                arrowsUi.SetSequence(chosenGum);
-                gameManager.SetGameState(GameState.ArrowSequence);
+                arrowsUi.SetSequence(chosenGum); //Passes the chosen gum to the Arrows UI
+                gameManager.SetGameState(GameState.ArrowSequence); //Changes game state
 
-                currentGumChoices = CreateGumChoices();
+                currentGumChoices = CreateGumChoices(); //Resets gum choices
             }
         }
     }
 
+    //Clears the currentGumChoices list
     private void ClearChoices()
     {
         foreach (GameObject gum in currentGumChoices)
@@ -61,6 +66,7 @@ public class GumChooserUI : MonoBehaviour
         }
     }
 
+    //Creates a new, random list of gum choices and places them on screen
     private List<GameObject> CreateGumChoices()
     {
         ClearChoices();

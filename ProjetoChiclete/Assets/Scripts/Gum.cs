@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using NUnit.Framework;
 using UnityEngine;
 
+//Base class that represents a single
 public class Gum
 {
     public Difficulty difficulty { get; private set; } //Gum difficulty
@@ -67,14 +68,14 @@ public class Gum
     }
 }
 
-public enum Difficulty
+public enum Difficulty //Enumerator for gum difficulties
 {
     Easy,
     Normal,
     Hard
 }
 
-public enum Flavour
+public enum Flavour //Enumerator for gum flavours
 {
     Tutti,
     Mint,
