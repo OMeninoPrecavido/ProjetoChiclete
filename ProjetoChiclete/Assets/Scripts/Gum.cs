@@ -13,6 +13,7 @@ public class Gum
     {
         difficulty = (Difficulty)Random.Range(0, 3);
         flavour = (Flavour)Random.Range(0, 3);
+        arrowSequence = new List<KeyCode>();
 
         int numOfarrows = 0;
 
@@ -31,7 +32,8 @@ public class Gum
 
         for (int i = 0; i < numOfarrows; i++)
         {
-            arrowSequence.Add(RandomArrow());
+            KeyCode arrow = RandomArrow();
+            arrowSequence.Add(arrow);
         }
     }
 
