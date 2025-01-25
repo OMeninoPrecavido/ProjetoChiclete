@@ -1,11 +1,10 @@
 using System.Collections.Generic;
-using NUnit.Framework;
 using UnityEngine;
-using UnityEngine.UI;
 
-public class GumChooser : MonoBehaviour
+public class GumChooserUI : MonoBehaviour
 {
     GameManager gameManager;
+    [SerializeField] GameObject gumChooserContainer;
     [SerializeField] GameObject gumObject;
     private const int GUM_CHOICE_AMOUNT = 4;
     private List<GameObject> currentGumChoices = new List<GameObject>();
@@ -70,7 +69,7 @@ public class GumChooser : MonoBehaviour
         for (int i = 0; i < GUM_CHOICE_AMOUNT; i++)
         {
             GameObject gum = Instantiate(gumObject);
-            gum.transform.SetParent(this.transform, false);
+            gum.transform.SetParent(gumChooserContainer.transform, false);
             gumChoices.Add(gum);
         }
 

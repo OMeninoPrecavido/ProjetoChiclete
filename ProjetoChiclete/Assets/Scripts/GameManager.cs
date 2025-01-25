@@ -5,7 +5,7 @@ public class GameManager : MonoBehaviour
 {
     //UI REFS
     [SerializeField] GameObject arrowsUi;
-    [SerializeField] GumChooser gumChooser;
+    [SerializeField] GameObject gumChooserUi;
 
     public static GameManager instance;
 
@@ -28,13 +28,13 @@ public class GameManager : MonoBehaviour
     private void GumSelection()
     {
         arrowsUi.SetActive(false);
-        gumChooser.gameObject.SetActive(true);
+        gumChooserUi.SetActive(true);
     }
 
     private void ArrowSequence()
     {
         arrowsUi.SetActive(true);
-        gumChooser.gameObject.SetActive(false);
+        gumChooserUi.gameObject.SetActive(false);
     }
 
     public void SetGameState(GameState state)
