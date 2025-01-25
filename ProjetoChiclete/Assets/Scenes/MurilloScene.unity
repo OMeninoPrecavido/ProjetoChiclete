@@ -605,6 +605,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   breathUI: {fileID: 1245370010}
   sequenceUI: {fileID: 1245370008}
+  gumChooserUI: {fileID: 1245370009}
 --- !u!4 &779089678
 Transform:
   m_ObjectHideFlags: 0
