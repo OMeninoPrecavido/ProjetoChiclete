@@ -938,6 +938,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 944834959}
   m_CullTransparentMesh: 1
+--- !u!4 &1173460942 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8202590374920642425, guid: 75bc3650295a4d14e9f61ce4e5293fe9, type: 3}
+  m_PrefabInstance: {fileID: 1553619093}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1245370002
 GameObject:
   m_ObjectHideFlags: 0
@@ -1112,6 +1117,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BreathIndicator: {fileID: 1801711701}
+  bubblePrefab: {fileID: 3623390034726603601, guid: 9d4b5a89c14a3e24684fced4c39def41, type: 3}
+  catMouth: {fileID: 1173460942}
 --- !u!1 &1267167365
 GameObject:
   m_ObjectHideFlags: 0
