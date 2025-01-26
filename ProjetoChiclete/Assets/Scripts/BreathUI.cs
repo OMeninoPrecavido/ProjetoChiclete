@@ -132,7 +132,7 @@ public class BreathUI : MonoBehaviour
                     break;
             }
         }
-
+        bubbleInstance.GetComponent<ColorChanger>().ChangeBubbleColor(sequenceUI.GetCurrentSequence());
         Transform bubble = bubbleInstance.transform;
         bubble.position = catMouth.position;
 
