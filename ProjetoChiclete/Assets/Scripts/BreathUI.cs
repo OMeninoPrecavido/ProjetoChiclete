@@ -13,6 +13,7 @@ public class BreathUI : MonoBehaviour
 
     [SerializeField] GameObject bubblePrefab;
     [SerializeField] Transform catMouth; 
+    [SerializeField] SequenceUI sequenceUI;
 
     private const float MAX_BREATH_TIME = 10.0f; //Max amount of breath
     private const float STREAK_ALTERATION_TIME = 1.0f; //Amount of breath incremented or decremented. Used continuously or in mistakes/successes
@@ -32,9 +33,12 @@ public class BreathUI : MonoBehaviour
         if (HasStreak)
         {
             //Check if the player wants to break the streak
-            if (Input.GetKeyDown(KeyCode.Space))
-                StartCoroutine(BlowBubble());
-                //BreakStreak(true);
+            if (Input.GetKeyDown(KeyCode.Space)) {
+                if(sequenceUI.GetCurrentSequence().Count > 0)
+                    StartCoroutine(BlowBubble());
+                else
+                    BreakStreak(true);
+            }
 
             //Updating bar UI
             CurrentBreath -= Time.deltaTime;
@@ -88,13 +92,17 @@ public class BreathUI : MonoBehaviour
 
     private IEnumerator BlowBubble()
     {
-        Transform bubble = Instantiate(bubblePrefab).transform;
+        
+        GameObject bubbleInstance = Instantiate(bubblePrefab);
+        Transform bubble = bubbleInstance.transform;
         bubble.position = catMouth.position;
 
-        float scaleFactor = CurrentBreath * 0.1f + 0.5f
-            ;
-        Vector3 scaleAdd = new Vector3(0.1f, 0.1f, 0.1f);
+        float scaleFactor = CurrentBreath * 0.03f + sequenceUI.GetCurrentSequence().Count * 0.2f;
+        Vector3 scaleAdd = new Vector3(0.05f, 0.05f, 0.05f);
+        // This can't be moved anywhere because it breaks the timing
+        BreakStreak(true);
 
+        Debug.Log(sequenceUI.GetCurrentSequence().Count);
         Debug.Log("CurrBreath: " + CurrentBreath);
         Debug.Log("scaleFactor: " + scaleFactor);
 
@@ -106,7 +114,9 @@ public class BreathUI : MonoBehaviour
             yield return null;
         }
 
-        BreakStreak(true);
+        yield return new WaitForSeconds(0.5f);
+
+        Destroy(bubbleInstance);
     }
 }
 
