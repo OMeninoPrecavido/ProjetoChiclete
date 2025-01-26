@@ -72,6 +72,10 @@ public class BreathUI : MonoBehaviour
             CurrentBreath = MAX_BREATH_TIME;
         }
     }
+
+    public float getAvailableBreath() {
+        return CurrentBreath/MAX_BREATH_TIME;
+    }
 }
 
 public enum StreakState

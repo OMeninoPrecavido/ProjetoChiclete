@@ -38,7 +38,8 @@ public class StreakManager : MonoBehaviour
         List<Gum> finalSequence = sequenceUI.BreakSequence();
         if (WasSuccess)
         {
-            int streakScore = Score.Calculate(finalSequence);
+            int streakScore = Score.Calculate(finalSequence, breathUI.getAvailableBreath());
+            Debug.Log(streakScore); 
             gameManager.IncreasePoints(streakScore);
         }
     }
