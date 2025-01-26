@@ -32,7 +32,7 @@ public class ArrowsUI : MonoBehaviour
 
     private void Update()
     {
-        ClearArrowAnimParams();
+        ClearAnimParams();
         if (gameManager.gameState == GameState.ArrowSequence) //Only works in the correct game state
         {
             KeyCode? pressedKey = GetInput(); //Returns key pressed by player
@@ -42,22 +42,22 @@ public class ArrowsUI : MonoBehaviour
                 {
                     if (pressedKey == KeyCode.LeftArrow)
                     {
-                        ClearArrowAnimParams();
+                        ClearAnimParams();
                         anim.SetBool("isLeft", true);
                     }
                     else if (pressedKey == KeyCode.UpArrow)
                     {
-                        ClearArrowAnimParams();
+                        ClearAnimParams();
                         anim.SetBool("isUp", true);
                     }
                     else if (pressedKey == KeyCode.RightArrow)
                     {
-                        ClearArrowAnimParams();
+                        ClearAnimParams();
                         anim.SetBool("isRight", true);
                     }
                     else if (pressedKey == KeyCode.DownArrow)
                     {
-                        ClearArrowAnimParams();
+                        ClearAnimParams();
                         anim.SetBool("isDown", true);
                     }
 
@@ -80,7 +80,7 @@ public class ArrowsUI : MonoBehaviour
                 }
                 else
                 {
-                    ClearArrowAnimParams();
+                    ClearAnimParams();
                     anim.SetBool("isMiss", true);
 
                     Input.ResetInputAxes(); //Prevents pressed key from influencing the next game state
@@ -93,7 +93,7 @@ public class ArrowsUI : MonoBehaviour
             }
             else
             {
-                ClearArrowAnimParams();
+                ClearAnimParams();
             }
         }
     }
@@ -160,7 +160,7 @@ public class ArrowsUI : MonoBehaviour
         }
     }
 
-    private void ClearArrowAnimParams()
+    public void ClearAnimParams()
     {
         anim.SetBool("isUp", false);
         anim.SetBool("isDown", false);

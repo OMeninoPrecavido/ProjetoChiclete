@@ -1120,6 +1120,7 @@ MonoBehaviour:
   bubblePrefab: {fileID: 3623390034726603601, guid: 9d4b5a89c14a3e24684fced4c39def41, type: 3}
   catMouth: {fileID: 1173460942}
   sequenceUI: {fileID: 1245370008}
+  anim: {fileID: 620189937}
 --- !u!1 &1267167365
 GameObject:
   m_ObjectHideFlags: 0

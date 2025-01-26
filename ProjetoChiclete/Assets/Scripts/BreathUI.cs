@@ -15,6 +15,8 @@ public class BreathUI : MonoBehaviour
     [SerializeField] Transform catMouth; 
     [SerializeField] SequenceUI sequenceUI;
 
+    [SerializeField] Animator anim;
+
     private const float MAX_BREATH_TIME = 10.0f; //Max amount of breath
     private const float STREAK_ALTERATION_TIME = 1.0f; //Amount of breath incremented or decremented. Used continuously or in mistakes/successes
 
@@ -92,6 +94,7 @@ public class BreathUI : MonoBehaviour
 
     private IEnumerator BlowBubble()
     {
+        anim.SetBool("isBlow", true);
         GameObject bubbleInstance = Instantiate(bubblePrefab);
         Transform bubble = bubbleInstance.transform;
         bubble.position = catMouth.position;
@@ -115,6 +118,7 @@ public class BreathUI : MonoBehaviour
         }
 
         yield return new WaitForSeconds(0.5f);
+        anim.SetBool("isBlow", false);
 
         Destroy(bubbleInstance);
         gameManager.SetGameState(GameState.GumSelection);
