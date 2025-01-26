@@ -10,7 +10,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject arrowsUi; //Center arrows UI
     [SerializeField] GameObject gumChooserUi; //Side gum options UI
     [SerializeField] TextMeshProUGUI timerUi; //Game timer UI
-    [SerializeField] TextMeshProUGUI pointsUi; //Game points UI
+    [SerializeField] TextMeshProUGUI totalPointsUi; //Game points UI
+    [SerializeField] TextMeshProUGUI realTimePointsUi; //Game points UI
     [SerializeField] GameObject pointerArrowsUi; //UI for indication arrows
 
     public static GameManager instance; //SINGLETON instance
@@ -39,7 +40,7 @@ public class GameManager : MonoBehaviour
         Timer = GAME_TIME_SECS;
 
         Points = 0;
-        pointsUi.text = Points.ToString() + " pts";
+        totalPointsUi.text = Points.ToString() + " pts";
     }
 
     private void Start()
@@ -84,13 +85,18 @@ public class GameManager : MonoBehaviour
             case GameState.EndGame:
                 EndGame();
                 break;
-        }   
+        }
     }
 
     public void IncreasePoints(int value)
     {
         Points += value;
-        pointsUi.text = Points.ToString()+ " pts";
+        totalPointsUi.text = Points.ToString() + " pts";
+    }
+
+    public void UpdateRealTimePoints(int value)
+    {
+        realTimePointsUi.text = value.ToString() + " pts";
     }
 
     IEnumerator DecreaseTimer()
