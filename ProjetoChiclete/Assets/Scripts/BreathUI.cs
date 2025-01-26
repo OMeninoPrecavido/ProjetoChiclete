@@ -109,7 +109,6 @@ public class BreathUI : MonoBehaviour
         gameManager.SetGameState(GameState.BubblePop);
         while (bubble.localScale.x < scaleFactor)
         {
-            Debug.Log(bubble.localScale);
             bubble.localScale += new Vector3(1f, 1f, 1f) * scaleAdd;
             localCurrentBreath -= breathStepAmount;
             BreathIndicator.fillAmount = localCurrentBreath/MAX_BREATH_TIME;

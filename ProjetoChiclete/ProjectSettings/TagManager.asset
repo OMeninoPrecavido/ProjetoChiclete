@@ -38,6 +38,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: BG
+    uniqueID: 1980847213
+    locked: 0
   - name: Torso
     uniqueID: 323632647
     locked: 0
