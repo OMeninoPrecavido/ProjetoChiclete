@@ -39,7 +39,7 @@ public class GameManager : MonoBehaviour
         Timer = GAME_TIME_SECS;
 
         Points = 0;
-        pointsUi.text = Points.ToString();
+        pointsUi.text = Points.ToString() + " pts";
     }
 
     private void Start()
@@ -90,7 +90,7 @@ public class GameManager : MonoBehaviour
     public void IncreasePoints(int value)
     {
         Points += value;
-        pointsUi.text = Points.ToString();
+        pointsUi.text = Points.ToString()+ " pts";
     }
 
     IEnumerator DecreaseTimer()
@@ -98,7 +98,7 @@ public class GameManager : MonoBehaviour
         while (Timer > 0)
         {
             Timer--;
-            timerUi.text = Timer.ToString();
+            timerUi.text = Timer.ToString() + "s";
             yield return new WaitForSeconds(1);
         }
         SetGameState(GameState.EndGame);
