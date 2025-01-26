@@ -5,13 +5,17 @@ using UnityEngine.UI;
 
 public class BreathUI : MonoBehaviour
 {
-    StreakManager streakManager;
-    GameManager gameManager;
-    [SerializeField] Image BreathIndicator;
-    private const float MAX_BREATH_TIME = 10.0f;
-    private const float STREAK_ALTERATION_TIME = 1.0f;
-    private float CurrentBreath = MAX_BREATH_TIME;
-    private bool HasStreak = false;
+    StreakManager streakManager; //Streak Manager reference
+    GameManager gameManager; //Game Manager reference
+
+    [SerializeField] Image BreathIndicator; //Visual indicator of breath. The inside of the bar
+
+    private const float MAX_BREATH_TIME = 10.0f; //Max amount of breath
+    private const float STREAK_ALTERATION_TIME = 1.0f; //Amount of breath incremented or decremented. Used continuously or in mistakes/successes
+
+    private float CurrentBreath = MAX_BREATH_TIME; //Current amount of breath
+    private bool HasStreak = false; //Indicates if the player is currently chewing gum
+
     void Start()
     {
         streakManager = StreakManager.instance;

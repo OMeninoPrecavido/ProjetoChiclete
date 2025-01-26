@@ -38,6 +38,12 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Torso
+    uniqueID: 323632647
+    locked: 0
+  - name: Head
+    uniqueID: 1858836077
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
