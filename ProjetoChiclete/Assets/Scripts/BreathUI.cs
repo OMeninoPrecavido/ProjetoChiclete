@@ -12,6 +12,8 @@ public class BreathUI : MonoBehaviour
     [SerializeField] Image BreathIndicator; //Visual indicator of breath. The inside of the bar
 
     [SerializeField] GameObject bubblePrefab;
+    [SerializeField] GameObject popPrefab;
+
     [SerializeField] Transform catMouth;
     [SerializeField] SequenceUI sequenceUI;
 
@@ -118,10 +120,17 @@ public class BreathUI : MonoBehaviour
             yield return null;
         }
 
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.3f);
         anim.SetBool("isBlow", false);
 
         Destroy(bubbleInstance);
+
+        GameObject pop = Instantiate(popPrefab);
+        pop.transform.position = catMouth.position;
+        pop.transform.localScale += new Vector3(1f, 1f, 1f) * scaleFactor;
+
+        Destroy(pop, 0.1f);
+
         gameManager.SetGameState(GameState.GumSelection);
     }
 }
