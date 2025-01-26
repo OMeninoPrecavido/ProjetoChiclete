@@ -114,7 +114,7 @@ public class BreathUI : MonoBehaviour
         audioSource.Stop();
         anim.SetBool("isBlow", true);
 
-        float points = Score.Calculate(sequenceUI.GetCurrentSequence(), CurrentBreath);
+        int points = Score.Calculate(sequenceUI.GetCurrentSequence(), getAvailableBreath());
 
         GameObject bubbleInstance = null;
         
