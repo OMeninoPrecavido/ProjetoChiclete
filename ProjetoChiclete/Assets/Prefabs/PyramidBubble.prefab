@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 948782252980433625}
   m_Layer: 0
-  m_Name: RoundBubble
+  m_Name: PyramidBubble
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 3623390034726603601}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.074, y: 0.135, z: 0}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -45,7 +45,7 @@ GameObject:
   - component: {fileID: 7165476137245976895}
   - component: {fileID: 1521052133136179414}
   m_Layer: 0
-  m_Name: RoundBack
+  m_Name: PyramidBack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -60,7 +60,7 @@ Transform:
   m_GameObject: {fileID: 3789729007183081088}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.6863878, y: 0.02, z: 0}
+  m_LocalPosition: {x: 2.65, y: -0.08, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -110,7 +110,7 @@ SpriteRenderer:
   m_SortingLayerID: 2112004041
   m_SortingLayer: 1
   m_SortingOrder: 19
-  m_Sprite: {fileID: -7938878928584171511, guid: 0aca646fba806c04585be22c72fc82c6, type: 3}
+  m_Sprite: {fileID: -1112529114769193714, guid: 0aca646fba806c04585be22c72fc82c6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 0.6862745}
   m_FlipX: 0
   m_FlipY: 0
@@ -132,7 +132,7 @@ GameObject:
   - component: {fileID: 9211200216483825635}
   - component: {fileID: 7118523854662194512}
   m_Layer: 0
-  m_Name: RoundOutline
+  m_Name: PyramidOutline
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -197,7 +197,7 @@ SpriteRenderer:
   m_SortingLayerID: 2112004041
   m_SortingLayer: 1
   m_SortingOrder: 20
-  m_Sprite: {fileID: 4078796110908485188, guid: 0aca646fba806c04585be22c72fc82c6, type: 3}
+  m_Sprite: {fileID: 2638978548525320615, guid: 0aca646fba806c04585be22c72fc82c6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -219,7 +219,7 @@ GameObject:
   - component: {fileID: 7825313194201551247}
   - component: {fileID: 2542439692535434906}
   m_Layer: 0
-  m_Name: RoundReflex
+  m_Name: PyramidReflex
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -234,7 +234,7 @@ Transform:
   m_GameObject: {fileID: 8760301029822194574}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.21, y: 0.95093787, z: 0}
+  m_LocalPosition: {x: 3.62, y: 0.34, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -284,7 +284,7 @@ SpriteRenderer:
   m_SortingLayerID: 2112004041
   m_SortingLayer: 1
   m_SortingOrder: 20
-  m_Sprite: {fileID: -5417141958962910980, guid: 0aca646fba806c04585be22c72fc82c6, type: 3}
+  m_Sprite: {fileID: -6200647851499984236, guid: 0aca646fba806c04585be22c72fc82c6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

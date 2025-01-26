@@ -11,7 +11,11 @@ public class BreathUI : MonoBehaviour
 
     [SerializeField] Image BreathIndicator; //Visual indicator of breath. The inside of the bar
 
-    [SerializeField] GameObject bubblePrefab;
+    [SerializeField] GameObject roundBubblePrefab;
+    [SerializeField] GameObject squareBubblePrefab;
+    [SerializeField] GameObject pyramidBubblePrefab;
+    [SerializeField] GameObject poodleBubblePrefab;
+
     [SerializeField] GameObject popPrefab;
 
     [SerializeField] Transform catMouth;
@@ -99,7 +103,36 @@ public class BreathUI : MonoBehaviour
     private IEnumerator BlowBubble()
     {
         anim.SetBool("isBlow", true);
-        GameObject bubbleInstance = Instantiate(bubblePrefab);
+
+        float points = Score.Calculate(sequenceUI.GetCurrentSequence(), CurrentBreath);
+
+        GameObject bubbleInstance = null;
+        
+        if (points < 270)
+        {
+            bubbleInstance = Instantiate(roundBubblePrefab);
+        }
+        else
+        {
+            int r = UnityEngine.Random.Range(0, 4);
+
+            switch (r)
+            {
+                case 0:
+                    bubbleInstance = Instantiate(roundBubblePrefab);
+                    break;
+                case 1:
+                    bubbleInstance = Instantiate(squareBubblePrefab);
+                    break;
+                case 2:
+                    bubbleInstance = Instantiate(pyramidBubblePrefab);
+                    break;
+                case 3:
+                    bubbleInstance = Instantiate(poodleBubblePrefab);
+                    break;
+            }
+        }
+
         Transform bubble = bubbleInstance.transform;
         bubble.position = catMouth.position;
 
