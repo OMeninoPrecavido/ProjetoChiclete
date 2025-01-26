@@ -6,7 +6,8 @@ using UnityEngine;
 public class ArrowsUI : MonoBehaviour
 {
     GameManager gameManager; //Game manager reference
-    StreakManager streakManager;
+    StreakManager streakManager; //Streak manager ref
+    [SerializeField] Animator anim; //Gumcat animator ref
 
     [SerializeField] GameObject arrowsContainer; //Reference to Arrows UI
 
@@ -31,6 +32,7 @@ public class ArrowsUI : MonoBehaviour
 
     private void Update()
     {
+        ClearAnimParams();
         if (gameManager.gameState == GameState.ArrowSequence) //Only works in the correct game state
         {
             KeyCode? pressedKey = GetInput(); //Returns key pressed by player
@@ -38,6 +40,27 @@ public class ArrowsUI : MonoBehaviour
             {
                 if (pressedKey == currentSequence[0]) //If key was right...
                 {
+                    if (pressedKey == KeyCode.LeftArrow)
+                    {
+                        ClearAnimParams();
+                        anim.SetBool("isLeft", true);
+                    }
+                    else if (pressedKey == KeyCode.UpArrow)
+                    {
+                        ClearAnimParams();
+                        anim.SetBool("isUp", true);
+                    }
+                    else if (pressedKey == KeyCode.RightArrow)
+                    {
+                        ClearAnimParams();
+                        anim.SetBool("isRight", true);
+                    }
+                    else if (pressedKey == KeyCode.DownArrow)
+                    {
+                        ClearAnimParams();
+                        anim.SetBool("isDown", true);
+                    }
+
                     //Removes first arrow both from KeyCode list and actual arrow image list
                     currentSequence.RemoveAt(0);
                     Destroy(arrowObjects[0]); //Destroys first arrow image
@@ -45,6 +68,7 @@ public class ArrowsUI : MonoBehaviour
 
                     if (currentSequence.Count <= 0) //If it was the last key...
                     {
+
                         Input.ResetInputAxes(); //Prevents pressed key from influencing the next game state
 
                         CleanUp(); //Destroys every arrow image and clears both lists
@@ -64,6 +88,10 @@ public class ArrowsUI : MonoBehaviour
                     streakManager.NotifyUpdateStreak(StreakState.Fail); //Notify that the wrong sequence was typed
                     gameManager.SetGameState(GameState.GumSelection);//Sets game state to GumSelection
                 }
+            }
+            else
+            {
+                ClearAnimParams();
             }
         }
     }
@@ -128,5 +156,13 @@ public class ArrowsUI : MonoBehaviour
             arrow.transform.SetParent(arrowsContainer.transform);
             arrowObjects.Add(arrow);
         }
+    }
+
+    private void ClearAnimParams()
+    {
+        anim.SetBool("isUp", false);
+        anim.SetBool("isDown", false);
+        anim.SetBool("isLeft", false);
+        anim.SetBool("isRight", false);
     }
 }
