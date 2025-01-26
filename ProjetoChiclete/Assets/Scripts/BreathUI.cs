@@ -99,7 +99,9 @@ public class BreathUI : MonoBehaviour
     private IEnumerator BlowBubble()
     {
         anim.SetBool("isBlow", true);
+
         GameObject bubbleInstance = Instantiate(bubblePrefab);
+        bubbleInstance.GetComponent<ColorChanger>().ChangeBubbleColor(sequenceUI.GetCurrentSequence());
         Transform bubble = bubbleInstance.transform;
         bubble.position = catMouth.position;
 
