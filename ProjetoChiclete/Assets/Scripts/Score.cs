@@ -27,6 +27,25 @@ public class Score : MonoBehaviour
     public static void MergeSlots()
     {
         MergeTrios();
+        MergeDuos();
+    }
+
+    public static void MergeDuos()
+    {
+        for (int i = 0; i <= scoreSlots.Count - 2; i++)
+        {
+            ScoreSlot current = scoreSlots[i];
+            ScoreSlot next = scoreSlots[i + 1];
+            if ((current.flavour == next.flavour) && (current.quantity == next.quantity))
+            {
+                scoreSlots[i].points += next.points;
+                scoreSlots[i].points *= 2;
+                scoreSlots[i].quantity += next.quantity;
+
+                scoreSlots.RemoveAt(i+1);
+                i++;
+            }
+        }
     }
 
     public static void MergeTrios()
