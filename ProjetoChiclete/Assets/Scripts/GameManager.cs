@@ -2,6 +2,7 @@ using System.Collections;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 //Game manager class
 public class GameManager : MonoBehaviour
@@ -19,7 +20,7 @@ public class GameManager : MonoBehaviour
     public GameState gameState; //Variable that defines the current state of the game
 
     public int Timer { get; private set; }
-    private const int GAME_TIME_SECS = 90;
+    private const int GAME_TIME_SECS = 5;
 
     public int Points { get; private set; }
 
@@ -66,8 +67,7 @@ public class GameManager : MonoBehaviour
 
     private void EndGame()
     {
-        arrowsUi.SetActive(false);
-        gumChooserUi.SetActive(false);
+        SceneManager.LoadScene("EndScene");
     }
 
     //Method used by other scripts to change the game state
