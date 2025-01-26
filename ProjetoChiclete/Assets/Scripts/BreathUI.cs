@@ -97,19 +97,19 @@ public class BreathUI : MonoBehaviour
         bubble.position = catMouth.position;
 
         float scaleFactor = CurrentBreath * 0.03f + sequenceUI.GetCurrentSequence().Count * 0.2f;
-        Vector3 scaleAdd = new Vector3(0.05f, 0.05f, 0.05f);
+        float scaleAdd = 0.005f;
+        float breathStepAmount = CurrentBreath / ((scaleFactor - bubble.localScale.x)/scaleAdd);
+        float localCurrentBreath = CurrentBreath;
         // This can't be moved anywhere because it breaks the timing
         BreakStreak(true);
 
         gameManager.SetGameState(GameState.BubblePop);
-        Debug.Log(sequenceUI.GetCurrentSequence().Count);
-        Debug.Log("CurrBreath: " + CurrentBreath);
-        Debug.Log("scaleFactor: " + scaleFactor);
-
         while (bubble.localScale.x < scaleFactor)
         {
             Debug.Log(bubble.localScale);
-            bubble.localScale += scaleAdd;
+            bubble.localScale += new Vector3(1f, 1f, 1f) * scaleAdd;
+            localCurrentBreath -= breathStepAmount;
+            BreathIndicator.fillAmount = localCurrentBreath/MAX_BREATH_TIME;
 
             yield return null;
         }
