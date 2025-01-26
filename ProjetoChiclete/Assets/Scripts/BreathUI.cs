@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
@@ -9,6 +10,9 @@ public class BreathUI : MonoBehaviour
     GameManager gameManager; //Game Manager reference
 
     [SerializeField] Image BreathIndicator; //Visual indicator of breath. The inside of the bar
+
+    [SerializeField] GameObject bubblePrefab;
+    [SerializeField] Transform catMouth; 
 
     private const float MAX_BREATH_TIME = 10.0f; //Max amount of breath
     private const float STREAK_ALTERATION_TIME = 1.0f; //Amount of breath incremented or decremented. Used continuously or in mistakes/successes
@@ -29,7 +33,8 @@ public class BreathUI : MonoBehaviour
         {
             //Check if the player wants to break the streak
             if (Input.GetKeyDown(KeyCode.Space))
-                BreakStreak(true);
+                StartCoroutine(BlowBubble());
+                //BreakStreak(true);
 
             //Updating bar UI
             CurrentBreath -= Time.deltaTime;
@@ -79,6 +84,29 @@ public class BreathUI : MonoBehaviour
 
     public float getAvailableBreath() {
         return CurrentBreath/MAX_BREATH_TIME;
+    }
+
+    private IEnumerator BlowBubble()
+    {
+        Transform bubble = Instantiate(bubblePrefab).transform;
+        bubble.position = catMouth.position;
+
+        float scaleFactor = CurrentBreath * 0.1f + 0.5f
+            ;
+        Vector3 scaleAdd = new Vector3(0.1f, 0.1f, 0.1f);
+
+        Debug.Log("CurrBreath: " + CurrentBreath);
+        Debug.Log("scaleFactor: " + scaleFactor);
+
+        while (bubble.localScale.x < scaleFactor)
+        {
+            Debug.Log(bubble.localScale);
+            bubble.localScale += scaleAdd;
+
+            yield return null;
+        }
+
+        BreakStreak(true);
     }
 }
 
