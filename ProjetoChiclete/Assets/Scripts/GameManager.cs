@@ -21,7 +21,7 @@ public class GameManager : MonoBehaviour
     public GameState gameState; //Variable that defines the current state of the game
 
     public int Timer { get; private set; }
-    private const int GAME_TIME_SECS = 70;
+    private const int GAME_TIME_SECS = 5;
 
     public int Points { get; private set; }
 
@@ -74,7 +74,7 @@ public class GameManager : MonoBehaviour
 
     private void EndGame()
     {
-        SceneManager.LoadScene("EndScene");
+        SceneManager.LoadScene("EndScreen");
     }
 
     private void BubblePop()
