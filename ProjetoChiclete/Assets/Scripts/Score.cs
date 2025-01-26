@@ -18,7 +18,7 @@ public class Score : MonoBehaviour
 
         MergeSlots();
 
-        int finalScore = ProcessScoreSlots((int)(breathMultiplier * 10));
+        int finalScore = ProcessScoreSlots((int)(breathMultiplier * 10)+1);
 
         scoreSlots.Clear();
         return finalScore;
