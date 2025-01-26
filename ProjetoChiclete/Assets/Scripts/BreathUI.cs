@@ -37,7 +37,7 @@ public class BreathUI : MonoBehaviour
         }
         else
         {
-            BreathIndicator.fillAmount = 0f;
+            BreathIndicator.fillAmount = 1.0f;
         }
     }
 
