@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI totalPointsUi; //Game points UI
     [SerializeField] TextMeshProUGUI realTimePointsUi; //Game points UI
     [SerializeField] GameObject pointerArrowsUi; //UI for indication arrows
+    [SerializeField] AudioClip musicClip;
 
     public static GameManager instance; //SINGLETON instance
 
@@ -23,6 +24,8 @@ public class GameManager : MonoBehaviour
     private const int GAME_TIME_SECS = 70;
 
     public int Points { get; private set; }
+
+    private AudioSource audioSource;
 
     private void Awake()
     {
@@ -46,6 +49,10 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        audioSource = GetComponent<AudioSource>();
+        audioSource.clip = musicClip;
+        audioSource.loop = true;
+        audioSource.Play();
         StartCoroutine(DecreaseTimer());
     }
 
