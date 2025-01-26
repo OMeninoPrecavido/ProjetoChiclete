@@ -70,6 +70,13 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene("EndScene");
     }
 
+    private void BubblePop()
+    {
+        arrowsUi.SetActive(false);
+        gumChooserUi.SetActive(false);
+        pointerArrowsUi.SetActive(false);
+    }
+
     //Method used by other scripts to change the game state
     public void SetGameState(GameState state)
     {
@@ -84,6 +91,9 @@ public class GameManager : MonoBehaviour
                 break;
             case GameState.EndGame:
                 EndGame();
+                break;
+            case GameState.BubblePop:
+                BubblePop();
                 break;
         }
     }
@@ -115,5 +125,6 @@ public enum GameState //Enumerator for game states
 {
     GumSelection,
     ArrowSequence,
-    EndGame
+    EndGame,
+    BubblePop
 }

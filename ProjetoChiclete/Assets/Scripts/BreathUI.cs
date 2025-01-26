@@ -92,7 +92,6 @@ public class BreathUI : MonoBehaviour
 
     private IEnumerator BlowBubble()
     {
-        
         GameObject bubbleInstance = Instantiate(bubblePrefab);
         Transform bubble = bubbleInstance.transform;
         bubble.position = catMouth.position;
@@ -102,6 +101,7 @@ public class BreathUI : MonoBehaviour
         // This can't be moved anywhere because it breaks the timing
         BreakStreak(true);
 
+        gameManager.SetGameState(GameState.BubblePop);
         Debug.Log(sequenceUI.GetCurrentSequence().Count);
         Debug.Log("CurrBreath: " + CurrentBreath);
         Debug.Log("scaleFactor: " + scaleFactor);
@@ -117,6 +117,7 @@ public class BreathUI : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
 
         Destroy(bubbleInstance);
+        gameManager.SetGameState(GameState.GumSelection);
     }
 }
 
