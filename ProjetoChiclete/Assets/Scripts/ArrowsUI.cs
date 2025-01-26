@@ -32,7 +32,7 @@ public class ArrowsUI : MonoBehaviour
 
     private void Update()
     {
-        ClearAnimParams();
+        ClearArrowAnimParams();
         if (gameManager.gameState == GameState.ArrowSequence) //Only works in the correct game state
         {
             KeyCode? pressedKey = GetInput(); //Returns key pressed by player
@@ -42,22 +42,22 @@ public class ArrowsUI : MonoBehaviour
                 {
                     if (pressedKey == KeyCode.LeftArrow)
                     {
-                        ClearAnimParams();
+                        ClearArrowAnimParams();
                         anim.SetBool("isLeft", true);
                     }
                     else if (pressedKey == KeyCode.UpArrow)
                     {
-                        ClearAnimParams();
+                        ClearArrowAnimParams();
                         anim.SetBool("isUp", true);
                     }
                     else if (pressedKey == KeyCode.RightArrow)
                     {
-                        ClearAnimParams();
+                        ClearArrowAnimParams();
                         anim.SetBool("isRight", true);
                     }
                     else if (pressedKey == KeyCode.DownArrow)
                     {
-                        ClearAnimParams();
+                        ClearArrowAnimParams();
                         anim.SetBool("isDown", true);
                     }
 
@@ -68,7 +68,6 @@ public class ArrowsUI : MonoBehaviour
 
                     if (currentSequence.Count <= 0) //If it was the last key...
                     {
-
                         Input.ResetInputAxes(); //Prevents pressed key from influencing the next game state
 
                         CleanUp(); //Destroys every arrow image and clears both lists
@@ -81,6 +80,9 @@ public class ArrowsUI : MonoBehaviour
                 }
                 else
                 {
+                    ClearArrowAnimParams();
+                    anim.SetBool("isMiss", true);
+
                     Input.ResetInputAxes(); //Prevents pressed key from influencing the next game state
 
                     CleanUp(); //Destroys every arrow image and clears both lists
@@ -91,7 +93,7 @@ public class ArrowsUI : MonoBehaviour
             }
             else
             {
-                ClearAnimParams();
+                ClearArrowAnimParams();
             }
         }
     }
@@ -158,11 +160,12 @@ public class ArrowsUI : MonoBehaviour
         }
     }
 
-    private void ClearAnimParams()
+    private void ClearArrowAnimParams()
     {
         anim.SetBool("isUp", false);
         anim.SetBool("isDown", false);
         anim.SetBool("isLeft", false);
         anim.SetBool("isRight", false);
+        anim.SetBool("isMiss", false);
     }
 }
