@@ -74,7 +74,7 @@ public class GameManager : MonoBehaviour
 
     private void EndGame()
     {
-        SceneManager.LoadScene("EndScreen");
+        SceneManager.LoadScene("Menu");
     }
 
     private void BubblePop()
