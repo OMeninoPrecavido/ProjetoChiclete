@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class ScoreSlot
 {
-    public int points {get; set;}
-    public int quantity {get; set;}
-    public Flavour flavour {get; set;}
+    public int points { get; set; }
+    public int quantity { get; set; }
+    public Flavour flavour { get; set; }
 
-    public ScoreSlot(int points, int quantity, Flavour flavour) {
+    public ScoreSlot(int points, int quantity, Flavour flavour)
+    {
         this.points = points;
         this.quantity = quantity;
         this.flavour = flavour;

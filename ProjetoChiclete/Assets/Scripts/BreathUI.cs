@@ -12,7 +12,7 @@ public class BreathUI : MonoBehaviour
     [SerializeField] Image BreathIndicator; //Visual indicator of breath. The inside of the bar
 
     [SerializeField] GameObject bubblePrefab;
-    [SerializeField] Transform catMouth; 
+    [SerializeField] Transform catMouth;
     [SerializeField] SequenceUI sequenceUI;
 
     [SerializeField] Animator anim;
@@ -35,8 +35,9 @@ public class BreathUI : MonoBehaviour
         if (HasStreak)
         {
             //Check if the player wants to break the streak
-            if (Input.GetKeyDown(KeyCode.Space)) {
-                if(sequenceUI.GetCurrentSequence().Count > 0)
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                if (sequenceUI.GetCurrentSequence().Count > 0)
                     StartCoroutine(BlowBubble());
                 else
                     BreakStreak(true);
@@ -68,14 +69,14 @@ public class BreathUI : MonoBehaviour
         if (HasStreak)
         {
             //We increase out breath if the sequence was successful, otherwise, we decrease it
-            switch(state)
+            switch (state)
             {
                 case StreakState.Choice:
                     break;
                 case StreakState.Success:
                     CurrentBreath = Mathf.Min(CurrentBreath + STREAK_ALTERATION_TIME, MAX_BREATH_TIME);
                     break;
-                case StreakState.Fail:           
+                case StreakState.Fail:
                     CurrentBreath -= STREAK_ALTERATION_TIME;
                     break;
             }
@@ -88,8 +89,9 @@ public class BreathUI : MonoBehaviour
         }
     }
 
-    public float getAvailableBreath() {
-        return CurrentBreath/MAX_BREATH_TIME;
+    public float getAvailableBreath()
+    {
+        return CurrentBreath / MAX_BREATH_TIME;
     }
 
     private IEnumerator BlowBubble()
@@ -101,7 +103,7 @@ public class BreathUI : MonoBehaviour
 
         float scaleFactor = CurrentBreath * 0.03f + sequenceUI.GetCurrentSequence().Count * 0.2f;
         float scaleAdd = 0.005f;
-        float breathStepAmount = CurrentBreath / ((scaleFactor - bubble.localScale.x)/scaleAdd);
+        float breathStepAmount = CurrentBreath / ((scaleFactor - bubble.localScale.x) / scaleAdd);
         float localCurrentBreath = CurrentBreath;
         // This can't be moved anywhere because it breaks the timing
         BreakStreak(true);
@@ -111,7 +113,7 @@ public class BreathUI : MonoBehaviour
         {
             bubble.localScale += new Vector3(1f, 1f, 1f) * scaleAdd;
             localCurrentBreath -= breathStepAmount;
-            BreathIndicator.fillAmount = localCurrentBreath/MAX_BREATH_TIME;
+            BreathIndicator.fillAmount = localCurrentBreath / MAX_BREATH_TIME;
 
             yield return null;
         }

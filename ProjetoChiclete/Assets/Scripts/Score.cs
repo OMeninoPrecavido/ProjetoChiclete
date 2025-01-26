@@ -18,7 +18,7 @@ public class Score : MonoBehaviour
 
         MergeSlots();
 
-        int finalScore = ProcessScoreSlots((int)(breathMultiplier * 10)+1);
+        int finalScore = ProcessScoreSlots((int)(breathMultiplier * 10) + 1);
 
         scoreSlots.Clear();
         return finalScore;
@@ -42,7 +42,7 @@ public class Score : MonoBehaviour
                 scoreSlots[i].points *= 2;
                 scoreSlots[i].quantity += next.quantity;
 
-                scoreSlots.RemoveAt(i+1);
+                scoreSlots.RemoveAt(i + 1);
                 i++;
             }
         }

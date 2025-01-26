@@ -35,11 +35,11 @@ public class StreakManager : MonoBehaviour
 
     public void NotifyUpdateStreak(StreakState state)
     {
-        
+
         breathUI.UpdateStreak(state);
 
     }
-    
+
     public void NotifyStreakBreak(bool WasSuccess)
     {
         gumChooserUI.ReloadGumChoices();
