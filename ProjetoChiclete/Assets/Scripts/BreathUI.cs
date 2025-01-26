@@ -23,6 +23,10 @@ public class BreathUI : MonoBehaviour
     [SerializeField] SequenceUI sequenceUI;
 
     [SerializeField] Animator anim;
+    [SerializeField] AudioClip popClip;
+    [SerializeField] AudioClip chewingClip;
+
+    private AudioSource audioSource;
 
     private const float MAX_BREATH_TIME = 10.0f; //Max amount of breath
     private const float STREAK_ALTERATION_TIME = 1.0f; //Amount of breath incremented or decremented. Used continuously or in mistakes/successes
@@ -34,6 +38,10 @@ public class BreathUI : MonoBehaviour
     {
         streakManager = StreakManager.instance;
         gameManager = GameManager.instance;
+        audioSource = GetComponent<AudioSource>();
+        audioSource.clip = chewingClip;
+        audioSource.loop = true;
+        audioSource.Play();
     }
 
     void Update()
@@ -103,6 +111,7 @@ public class BreathUI : MonoBehaviour
 
     private IEnumerator BlowBubble()
     {
+        audioSource.Stop();
         anim.SetBool("isBlow", true);
 
         float points = Score.Calculate(sequenceUI.GetCurrentSequence(), CurrentBreath);
@@ -165,7 +174,16 @@ public class BreathUI : MonoBehaviour
         pop.transform.localScale += new Vector3(1f, 1f, 1f) * scaleFactor;
         pop.GetComponent<ColorChanger>().ChangeBubbleColor(currentSequence);
 
+        audioSource.clip = popClip;
+        audioSource.loop = false;
+        audioSource.time = 0f;
+        audioSource.Play(); 
         Destroy(pop, 0.1f);
+        yield return new WaitForSeconds(audioSource.clip.length);
+
+        audioSource.clip = chewingClip;
+        audioSource.loop = true;
+        audioSource.Play();
 
         gameManager.SetGameState(GameState.GumSelection);
     }
