@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 948782252980433625}
+  - component: {fileID: 6156835387526896989}
   m_Layer: 0
   m_Name: CubeBubble
   m_TagString: Untagged
@@ -34,6 +35,19 @@ Transform:
   - {fileID: 7165476137245976895}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6156835387526896989
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3623390034726603601}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4abc2c15d2535fd6bb6b6aacedc68032, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteRenderer: {fileID: 1521052133136179414}
 --- !u!1 &3789729007183081088
 GameObject:
   m_ObjectHideFlags: 0

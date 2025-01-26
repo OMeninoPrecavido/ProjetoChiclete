@@ -1117,7 +1117,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BreathIndicator: {fileID: 1801711701}
-  bubblePrefab: {fileID: 3623390034726603601, guid: 9d4b5a89c14a3e24684fced4c39def41, type: 3}
+  roundBubblePrefab: {fileID: 3623390034726603601, guid: 9d4b5a89c14a3e24684fced4c39def41, type: 3}
+  squareBubblePrefab: {fileID: 3623390034726603601, guid: 4a4473aae4b71304fa78dfd62c212d9f, type: 3}
+  pyramidBubblePrefab: {fileID: 3623390034726603601, guid: 14315d18ea52be845ad8883a6590617d, type: 3}
+  poodleBubblePrefab: {fileID: 3623390034726603601, guid: ee8cb490e2ece9f4c8492a177b70cba0, type: 3}
+  popPrefab: {fileID: 3257908929008174984, guid: bd34a1949be8b6c44ac415420f940d18, type: 3}
   catMouth: {fileID: 1173460942}
   sequenceUI: {fileID: 1245370008}
   anim: {fileID: 620189937}

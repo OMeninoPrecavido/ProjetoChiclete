@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
@@ -132,11 +133,12 @@ public class BreathUI : MonoBehaviour
                     break;
             }
         }
-        bubbleInstance.GetComponent<ColorChanger>().ChangeBubbleColor(sequenceUI.GetCurrentSequence());
+        List<Gum> currentSequence = sequenceUI.GetCurrentSequence();
+        bubbleInstance.GetComponent<ColorChanger>().ChangeBubbleColor(currentSequence);
         Transform bubble = bubbleInstance.transform;
         bubble.position = catMouth.position;
 
-        float scaleFactor = CurrentBreath * 0.03f + sequenceUI.GetCurrentSequence().Count * 0.2f;
+        float scaleFactor = CurrentBreath * 0.03f + currentSequence.Count * 0.2f;
         float scaleAdd = 0.005f;
         float breathStepAmount = CurrentBreath / ((scaleFactor - bubble.localScale.x) / scaleAdd);
         float localCurrentBreath = CurrentBreath;
@@ -161,6 +163,7 @@ public class BreathUI : MonoBehaviour
         GameObject pop = Instantiate(popPrefab);
         pop.transform.position = catMouth.position;
         pop.transform.localScale += new Vector3(1f, 1f, 1f) * scaleFactor;
+        pop.GetComponent<ColorChanger>().ChangeBubbleColor(currentSequence);
 
         Destroy(pop, 0.1f);
 

@@ -27,6 +27,7 @@ public class ColorChanger : MonoBehaviour
         redCount /= maxCount;
         greenCount /= maxCount;
         blueCount /= maxCount;
+        
         spriteRenderer.color = new Color(redCount, greenCount, blueCount, 0.68627451f);
     }
 }
