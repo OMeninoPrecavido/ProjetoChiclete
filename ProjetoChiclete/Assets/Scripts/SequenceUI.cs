@@ -44,4 +44,10 @@ public class SequenceUI : MonoBehaviour
         DisplaySequence();
         return finalSequence;
     }
+
+    public List<Gum> GetCurrentSequence()
+    {
+        List<Gum> sequence = new List<Gum>(currSequence);
+        return sequence;
+    }
 }

@@ -10,37 +10,111 @@ public class Score : MonoBehaviour
         {Difficulty.Normal, 3},
         {Difficulty.Hard, 5},
     };
+    public static List<ScoreSlot> scoreSlots = new List<ScoreSlot>();
 
-    public static int Calculate(List<Gum> gums)
+    public static int Calculate(List<Gum> gums, float breathMultiplier)
     {
-        List<Difficulty> difficulties = gums.Select(item => item.difficulty).ToList();
-        List<Flavour> flavours = gums.Select(item => item.flavour).ToList();
-        int finalScore = 0;
-        //Calculate scores based on the individual difficulty
-        foreach (Difficulty difficulty in difficulties)
-        {
-            finalScore += DifficultyModifier[difficulty];
-        }
+        BuildScoreSlots(gums);
 
+        MergeSlots();
 
-        //Getting sliding window to calculate for groups of 3
-        for (int i = 0; i <= flavours.Count - 3; i++) {
-            List<Flavour> window = flavours.GetRange(i, 3);
-            Debug.Log(string.Join(" ", window));
-            //Check if we have a all different trio
-            if(window.Distinct().Count() == window.Count) 
-            {
-                i += 2;
-                continue;
-            }
-            //Check if we have a trio in a list
-            if(window.All(item => item == window[0]))
-            {
-                i += 2;
-                continue;
-            }
-        }
+        int finalScore = ProcessScoreSlots((int)(breathMultiplier * 10)+1);
 
+        scoreSlots.Clear();
         return finalScore;
     }
+
+    public static void MergeSlots()
+    {
+        MergeTrios();
+        MergeDuos();
+    }
+
+    public static void MergeDuos()
+    {
+        for (int i = 0; i <= scoreSlots.Count - 2; i++)
+        {
+            ScoreSlot current = scoreSlots[i];
+            ScoreSlot next = scoreSlots[i + 1];
+            if ((current.flavour == next.flavour) && (current.quantity == next.quantity))
+            {
+                scoreSlots[i].points += next.points;
+                scoreSlots[i].points *= 2;
+                scoreSlots[i].quantity += next.quantity;
+
+                scoreSlots.RemoveAt(i+1);
+                i++;
+            }
+        }
+    }
+
+    public static void MergeTrios()
+    {
+        for (int i = 0; i <= scoreSlots.Count - 3; i++)
+        {
+            List<ScoreSlot> window = scoreSlots.GetRange(i, 3);
+            if (MergeDistinctTrios(window, i))
+            {
+                i += 2;
+                continue;
+            }
+            else if (MergeEqualTrios(window, i))
+            {
+                i += 2;
+                continue;
+            }
+        }
+    }
+
+    public static bool MergeEqualTrios(List<ScoreSlot> window, int index)
+    {
+        if (window.All(item => (item.flavour == window[0].flavour) && (item.quantity == window[0].quantity)))
+        {
+            scoreSlots[index].points += scoreSlots[index + 1].points + scoreSlots[index + 2].points;
+            scoreSlots[index].points *= 3;
+            scoreSlots[index].quantity += scoreSlots[index + 1].quantity + scoreSlots[index + 2].quantity;
+
+            scoreSlots.RemoveAt(index + 2);
+            scoreSlots.RemoveAt(index + 1);
+            return true;
+        }
+        return false;
+    }
+
+    public static bool MergeDistinctTrios(List<ScoreSlot> window, int index)
+    {
+        if (window.Distinct(new ScoreSlotEqualityComparer()).Count() == window.Count)
+        {
+            scoreSlots[index].points += scoreSlots[index + 1].points + scoreSlots[index + 2].points;
+            scoreSlots[index].points *= 4;
+            scoreSlots[index].quantity += scoreSlots[index + 1].quantity + scoreSlots[index + 2].quantity;
+
+            scoreSlots.RemoveAt(index + 2);
+            scoreSlots.RemoveAt(index + 1);
+            return true;
+        }
+        return false;
+    }
+
+    public static int ProcessScoreSlots(int breathMultiplier)
+    {
+        int points = 0;
+        int quantity = 0;
+        foreach (ScoreSlot slot in scoreSlots)
+        {
+            points += slot.points;
+            quantity += slot.quantity;
+        }
+        return points * quantity * breathMultiplier;
+    }
+
+    public static void BuildScoreSlots(List<Gum> gums)
+    {
+        foreach (Gum gum in gums)
+        {
+            ScoreSlot scoreSlot = new ScoreSlot(DifficultyModifier[gum.difficulty], 1, gum.flavour);
+            scoreSlots.Add(scoreSlot);
+        }
+    }
+
 }

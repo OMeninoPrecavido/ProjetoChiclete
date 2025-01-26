@@ -41,7 +41,7 @@ public class BreathUI : MonoBehaviour
         }
         else
         {
-            BreathIndicator.fillAmount = 0f;
+            BreathIndicator.fillAmount = 1.0f;
         }
     }
 
@@ -75,6 +75,10 @@ public class BreathUI : MonoBehaviour
             HasStreak = true;
             CurrentBreath = MAX_BREATH_TIME;
         }
+    }
+
+    public float getAvailableBreath() {
+        return CurrentBreath/MAX_BREATH_TIME;
     }
 }
 

@@ -25,6 +25,14 @@ public class StreakManager : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+        List<Gum> currentSequence = sequenceUI.GetCurrentSequence();
+        float currentBreath = breathUI.getAvailableBreath();
+        int realTimeScore = Score.Calculate(currentSequence, currentBreath);
+        gameManager.UpdateRealTimePoints(realTimeScore);
+    }
+
     public void NotifyUpdateStreak(StreakState state)
     {
         
@@ -38,7 +46,7 @@ public class StreakManager : MonoBehaviour
         List<Gum> finalSequence = sequenceUI.BreakSequence();
         if (WasSuccess)
         {
-            int streakScore = Score.Calculate(finalSequence);
+            int streakScore = Score.Calculate(finalSequence, breathUI.getAvailableBreath());
             gameManager.IncreasePoints(streakScore);
         }
     }
